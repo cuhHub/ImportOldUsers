@@ -25,7 +25,7 @@ def get_user_info(steam_id: str) -> SteamUser:
     return SteamUser(decoded["profile"]["steamID64"], decoded["profile"]["steamID"])
 
 def get_users(steam_ids: list[str]) -> list[SteamUser]:
-    with ThreadPoolExecutor(max_workers = 128) as executor:
+    with ThreadPoolExecutor(max_workers = 64) as executor:
         return list(executor.map(get_user_info, steam_ids))
     
 def get_steam_ids_from_config(path: str) -> list[str]:
