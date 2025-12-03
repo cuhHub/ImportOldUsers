@@ -40,4 +40,4 @@ if __name__ == "__main__":
     print(f"Got {len(users)} users")
     
     with open("users.json", "w") as f:
-        f.write(orjson.dumps(users))
+        f.write(orjson.dumps(users).decode())
